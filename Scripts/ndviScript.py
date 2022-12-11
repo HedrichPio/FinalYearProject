@@ -3,8 +3,8 @@ import os
 
 
 # assign directory
-inDirectory = '/Users/hedrichfernando/Downloads/PlanetData_FYP/OutputFilesYala/ClippedFiles'
-outDirectory = '/Users/hedrichfernando/Downloads/PlanetData_FYP/OutputFilesYala/NDVIFiles/ndvi_'
+inDirectory = '/Users/hedrichfernando/Documents/UNI/FinalYear/FYP/Implementation/PlanetData_FYP/MahaOutput/clipped'
+outDirectory ='/Users/hedrichfernando/Documents/UNI/FinalYear/FYP/Implementation/PlanetData_FYP/MahaOutput/ndvi/ndvi_'
  
 # iterate over files in
 # that directory

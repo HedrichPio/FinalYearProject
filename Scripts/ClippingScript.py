@@ -3,8 +3,8 @@ import os
 
 
 # assign directory
-inDirectory = '/Users/hedrichfernando/Downloads/PlanetData_FYP/InputFilesYala'
-outDirectory = '/Users/hedrichfernando/Downloads/PlanetData_FYP/OutputFilesYala/ClippedFiles/clipped_'
+inDirectory = '/Users/hedrichfernando/Documents/UNI/FinalYear/FYP/Implementation/PlanetData_FYP/Input/Maha/harmonized'
+outDirectory ='/Users/hedrichfernando/Documents/UNI/FinalYear/FYP/Implementation/PlanetData_FYP/MahaOutput/clipped/clipped_'
  
 # iterate over files in
 # that directory
@@ -14,7 +14,7 @@ for filename in os.listdir(inDirectory):
     output = outDirectory + filename
 
     
-    process = "gdal_translate -projwin 427179.6142 913746.8861 427706.2631 913483.5616 -of GTiff "+input+" "+output
+    process = "gdal_translate -projwin 427510.8046 913623.5888 427612.0769 913522.3164 -of GTiff "+input+" "+output
     os.system(process)
 
 
