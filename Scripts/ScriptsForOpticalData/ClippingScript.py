@@ -3,8 +3,15 @@ import os
 
 
 # assign directory
-inDirectory = '/Users/hedrichfernando/Downloads/Optical_RS/NewYala/InputYala'
-outDirectory ='/Users/hedrichfernando/Downloads/Optical_RS/NewYala/Output/clipped/clipped_'
+inDirectory = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/PlanetScope/NewYala/InputYala'
+outDirectory ='/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/PlanetScope/NewYala/OutputYala/cultivated/clipped/clipped_'
+
+#plot 1 top abandoned
+#coordinates = "427091.6225 914065.2363 427326.13 913880.9804"
+
+#plot 2 middle cultivated
+coordinates = "427208.8762 913728.3644 427681.6137 913499.4404"
+
  
 # iterate over files in
 # that directory
@@ -14,7 +21,7 @@ for filename in os.listdir(inDirectory):
     output = outDirectory + filename
 
     
-    process = "gdal_translate -projwin 427267.9877 913385.5604 427375.0419 913286.2919 -of GTiff "+input+" "+output
+    process = "gdal_translate -projwin "+coordinates+" -of GTiff "+input+" "+output
     os.system(process)
 
 
