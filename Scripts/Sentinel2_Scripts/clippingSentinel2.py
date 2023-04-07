@@ -3,28 +3,33 @@ import os
 
 
 # assign directory
-inDirectory = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/band8a"
-inDirectory_b = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/band12"
+inDirectory_a = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/8a"
+inDirectory_b = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/12"
 
-outDirectory ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/clipped_band8a/clipped_"
-outDirectory_b ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/clipped_band12/clipped_"
+outDirectory_a ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_8a/clipped_"
+outDirectory_b ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_12/clipped_"
 
 #plot 1 top abandoned
 #coordinates = "427091.6225 914065.2363 427326.13 913880.9804"
 
 #plot 2 middle cultivated
-coordinates = "427208.8762 913728.3644 427681.6137 913499.4404"
+#coordinates = "423248.6804 913383.1087 423696.8471 912908.8857"
+
+#coordinates = "424201.5197 914137.0564 427785.3617 912606.8766"
+
+#2_1
+coordinates = "426567.166 914120.5428 427771.847 913127.2683"
 
 
 # iterate over files in
 # that directory
-for filename in os.listdir(inDirectory):
+for filename in os.listdir(inDirectory_a):
     
     if filename.endswith(".tif"):
         
-        input = os.path.join(inDirectory, filename)
+        input = os.path.join(inDirectory_a, filename)
         
-        output = outDirectory + filename
+        output = outDirectory_a + filename
 
         
         process = "gdal_translate -projwin "+coordinates+" -of GTiff "+input+" "+output

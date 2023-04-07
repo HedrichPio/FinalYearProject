@@ -3,8 +3,8 @@ import os
 
 
 # assign directory
-inDirectory = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/resampled'
-outDirectory ='/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/xyz/xyz_'
+inDirectory = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_res'
+outDirectory ='/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_xyz/xyz_'
  
 # iterate over files in
 # that directory

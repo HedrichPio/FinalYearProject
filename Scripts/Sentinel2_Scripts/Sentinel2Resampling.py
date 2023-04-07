@@ -3,9 +3,9 @@ import os
 
 
 # assign directory
-inDirectory = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/lswi"
+inDirectory = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_lswi"
 
-outDirectory ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/resampled/resampled_"
+outDirectory ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_res/resampled_"
 
 res = 3
 algo = "near"

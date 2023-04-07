@@ -3,10 +3,10 @@ import os
 
 
 # assign directory
-inDirectory_band8a = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/clipped_band8a'
-inDirectory_band11 = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/clipped_band12'
+inDirectory_band8a = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_8a'
+inDirectory_band11 = '/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_12'
 
-outDirectory ='/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/Sentinel2/YalaSeperated/cultivated/lswi/lswi_'
+outDirectory ='/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_lswi/lswi_'
 
 unsorted_band8a = []
 unsorted_band11 = []
