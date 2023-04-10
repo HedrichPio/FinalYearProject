@@ -1,0 +1,13 @@
+<div class="image_container">
+    <canvas #canvas></canvas>
+  </div>
+  
+  <!-- <div id="check_button" (click)="getResults()"><p>Check</p></div> -->
+  <button mat-stroked-button (click)="getResults()">Check</button>
+  
+  <div *ngIf="isCalculated">
+    <p>Selected Area : {{area}} sq. metres</p>
+  </div>
+  
+  
+  

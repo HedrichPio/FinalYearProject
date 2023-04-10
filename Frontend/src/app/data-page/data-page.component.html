@@ -1,1 +1,16 @@
-<p>data-page works!</p>
+<div id="col_left">
+  <h3>NDVI (Normalised Difference Vegetative Index)</h3>
+  <app-image-card
+    *ngFor="let single of AllImages"
+    [satelliteImage]="single"
+  ></app-image-card>
+</div>
+
+<div id="col_right">
+    <h3>LSWI (Land Soil Water Index)</h3>
+    <app-image-card
+      *ngFor="let single of lswiData"
+      [satelliteImage]="single"
+    ></app-image-card>
+  </div>
+  

@@ -13,15 +13,33 @@ import os
 #process = "gdal_translate -of JPEG -scale -co worldfile=yes "+inputFile+" "+outputFile
 #os.system(process)
     
-input_a = '/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_planet/2_1_xyz/xyz_ndvi_clipped_2022_07_19_harmonized_clip.xyz'
+#input_a = '/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_planet/2_1_xyz/xyz_ndvi_clipped_2022_07_19_harmonized_clip.xyz'
 
-output_a = '/Users/hedrichfernando/Downloads/xyz_to_jpg2.jpg'
+#output_a = '/Users/hedrichfernando/Downloads/xyz_to_jpg2.jpg'
 
 
-process_a = "gdal_translate -of JPEG -scale "+input_a+" "+output_a
+#process_a = "gdal_translate -of JPEG -scale "+input_a+" "+output_a
 
-os.system(process_a)
+#os.system(process_a)
 
+
+
+inDirectory = '/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_res_ready'
+outDirectory ='/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_jpeg/jpg_'
+ 
+# iterate over files in
+# that directory
+for filename in os.listdir(inDirectory):
+    
+    #join file path and file name
+    input = os.path.join(inDirectory, filename)
+    
+    #setting output file path
+    output = outDirectory + os.path.splitext(filename)[0] + ".jpg"
+    
+    #translating the ndvi raster file into xyz format
+    process = "gdal_translate -of JPEG -scale "+input+" "+output
+    os.system(process)
     
     
     

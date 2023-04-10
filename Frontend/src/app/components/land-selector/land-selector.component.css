@@ -1,0 +1,31 @@
+
+.image_container {
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: rgb(210, 210, 210);
+  }
+
+
+
+
+p{
+    text-align: center;
+}
+
+button{
+    margin: auto;
+    display: table-cell;
+    margin-top: 10px;
+    width: 10%;
+    background-color: rgb(86, 182, 86);
+    opacity:  0.75;
+    transition: 0.3s;
+}
+
+button:hover{
+    opacity: 1
+}

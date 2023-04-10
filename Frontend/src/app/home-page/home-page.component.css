@@ -1,0 +1,90 @@
+.landing-page {
+    max-width: 1400px;
+    margin:0px auto;
+  }
+  .image_section{
+    display: flex;
+    padding: 0px 25px;
+  }
+  img{
+    margin-right: 20px;
+    height: 400px;
+    width: 49%;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  header {
+    text-align: center;
+    margin: 100px 0;
+  }
+  
+  header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  header p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  button {
+
+    background-color: rgb(86, 182, 86);
+    opacity: 0.75;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+
+  button:hover{
+    opacity: 1
+}
+
+  
+  section {
+    margin: 100px 0;
+  }
+  
+  section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  section p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  section li {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }

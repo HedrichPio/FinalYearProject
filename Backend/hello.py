@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, send_file, request
 from flask_cors import CORS, cross_origin
 from PIL import Image
+import json
+import os
 
 app = Flask(__name__)
 
@@ -9,12 +11,57 @@ app = Flask(__name__)
 def hello():
     return '<h1>Hello, Bubu!</h1>'
 
-@app.route('/api/data', methods=['GET'])
+
+@app.route('/getNdviData', methods=['GET'])
 @cross_origin()
-def get_data():
-    # Your code to get data goes here
-    data = {'foo': 'bar', 'baz': 'pio'}
+def get_ndvi_data():
+
+    inDir = "assets/ndvi"
+
+    all_images=[]
+
+    for filename in os.listdir(inDir):
+
+        input = os.path.join(inDir, filename)
+        all_images.append(input)
+
+    return jsonify(all_images)
+
+
+@app.route('/getSingleNdviImage')
+@cross_origin()
+def get_single_ndvi_image():
+
+     file = request.args.get('filename')
+
+     return send_file(file, mimetype='image/jpeg')
+
+
+@app.route('/dataJson', methods=['GET'])
+@cross_origin()
+def get_json():
+
+    with open('assets/ndvi_data.json','r') as f:
+        data = json.load(f)
+
     return jsonify(data)
+
+
+@app.route('/getLswiJson', methods=['GET'])
+@cross_origin()
+def get_lswi_json():
+
+    with open('assets/lswi_data.json','r') as f:
+        data = json.load(f)
+
+    return jsonify(data)
+
+
+
+
+
+
+
 
 
 

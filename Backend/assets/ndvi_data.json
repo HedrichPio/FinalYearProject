@@ -1,0 +1,76 @@
+[
+  {
+    "date": "04/04/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_04_04_harmonized_clip.jpg?alt=media&token=b4f2f505-97e2-4b7d-b87c-47081dfcf033"
+  },
+  {
+    "date": "06/04/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_04_06_harmonized_clip.jpg?alt=media&token=8a3e17f3-3c13-4abd-8f53-d3110a362632"
+  },
+  {
+    "date": "09/04/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_04_09_harmonized_clip.jpg?alt=media&token=7cf207b3-ced5-4c90-9044-ef6afaedaee3"
+  },
+  {
+    "date": "27/06/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_06_27_harmonized_clip.jpg?alt=media&token=e5579cd2-da33-421d-80a3-7dd54794abae"
+
+  },
+  {
+    "date": "19/07/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_07_19_harmonized_clip.jpg?alt=media&token=b59d389c-bcaf-4cc0-95b4-cd616b61595f"
+
+  },
+  {
+    "date": "21/07/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_07_21_harmonized_clip.jpg?alt=media&token=e7de6b18-11d8-465c-a187-94767dad1d20"
+
+  },
+  {
+    "date": "07/08/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_08_07_harmonized_clip.jpg?alt=media&token=51ddc0dd-1f17-469d-a3cb-75607e967a8f"
+
+  },
+  {
+    "date": "15/08/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_08_15_harmonized_clip.jpg?alt=media&token=7e93a199-2736-4999-9b11-3bf31e941bae"
+
+  },
+  {
+    "date": "15/09/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_09_15_harmonized_clip.jpg?alt=media&token=e3d092f7-ee88-4382-b1d5-15dbd0ccd5ce"
+
+  },
+  {
+    "date": "22/09/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_09_22_harmonized_clip.jpg?alt=media&token=1ea97acb-6c33-46e9-aeaa-c17b2322526b"
+
+  },
+  {
+    "date": "24/09/2022",
+    "satellite": "Planet Labs",
+    "land_size": "133020",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/ndvi_jpg_files%2Fjpg_ndvi_clipped_2022_09_24_harmonized_clip.jpg?alt=media&token=f36218ae-c320-46cf-b179-6872613bc5bc"
+
+  }
+]
