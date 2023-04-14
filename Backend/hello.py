@@ -12,34 +12,12 @@ def hello():
     return '<h1>Hello, Bubu!</h1>'
 
 
-@app.route('/getNdviData', methods=['GET'])
-@cross_origin()
-def get_ndvi_data():
 
-    inDir = "assets/ndvi"
-
-    all_images=[]
-
-    for filename in os.listdir(inDir):
-
-        input = os.path.join(inDir, filename)
-        all_images.append(input)
-
-    return jsonify(all_images)
-
-
-@app.route('/getSingleNdviImage')
-@cross_origin()
-def get_single_ndvi_image():
-
-     file = request.args.get('filename')
-
-     return send_file(file, mimetype='image/jpeg')
 
 
 @app.route('/dataJson', methods=['GET'])
 @cross_origin()
-def get_json():
+def get_ndvi_json():
 
     with open('assets/ndvi_data.json','r') as f:
         data = json.load(f)
@@ -60,11 +38,6 @@ def get_lswi_json():
 
 
 
-
-
-
-
-
 @app.route('/getResultsAPI')
 @cross_origin()
 def get_newdata():
@@ -73,21 +46,33 @@ def get_newdata():
     y1 = int(request.args.get('y1'))
     x2 = int(request.args.get('x2'))
     y2 = int(request.args.get('y2'))
+    model = request.args.get('model')
 
 
-    print("Parameters Received from the frontend",x1,y1,x2,y2)
+    print("Parameters Received from the frontend",x1,y1,x2,y2,model)
 
-    # Open the image file
-    results_map = Image.open("assets/result_map.jpg")
+    if model == "LSTM":
+        # Open the image file
+        results_map = Image.open("assets/result_maps/lstm_model_result_map.jpg")
 
-    clipped_image = results_map.crop((x1,y1,x2,y2))
+        clipped_image = results_map.crop((x1,y1,x2,y2))
 
-    clipped_image.save("assets/clipped.jpg")
+        clipped_image.save("assets/clipped.jpg")
+
+    elif model == 'CNN':
+
+        results_map = Image.open("assets/result_maps/cnn_model_result_map.jpg")
+
+        clipped_image = results_map.crop((x1,y1,x2,y2))
+
+        clipped_image.save("assets/clipped.jpg")
+
 
     clipped = open("assets/clipped.jpg", "rb")
 
     # Return the image file as a response
     return send_file(clipped, mimetype='image/jpeg')
+    
 
 
 

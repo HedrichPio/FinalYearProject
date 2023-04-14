@@ -21,13 +21,19 @@ export class LandSelectorComponent {
 
   private selectedArea: any = {};
 
-  area:any
+  area: any;
 
   isAreaSelected: Boolean = false;
   isCalculated: Boolean = false;
 
+  selectedModel!: string;
+
   constructor(private http: HttpClient, public dialog: MatDialog) {
     this.image.src = '/assets/xyz_jpg.jpg';
+  }
+
+  onModelFilterChange(model: string) {
+    this.selectedModel = model;
   }
 
   ngAfterViewInit() {
@@ -77,8 +83,6 @@ export class LandSelectorComponent {
     this.rect.stopX = e.offsetX;
     this.rect.stopY = e.offsetY;
 
-    
-
     // console.log(
     //   `x: ${this.rect.startX}, y: ${this.rect.startY}, x2: ${this.rect.stopX}, y2: ${this.rect.stopY}`
     // );
@@ -91,8 +95,6 @@ export class LandSelectorComponent {
       width: this.rect.w,
       height: this.rect.h,
     };
-
-    
 
     // const area = this.selectedArea.width * this.selectedArea.height;
     // console.log(`Selected area: ${area}`);
@@ -133,7 +135,8 @@ export class LandSelectorComponent {
         .set('x1', this.selectedArea.x1)
         .set('y1', this.selectedArea.y1)
         .set('x2', this.selectedArea.x2)
-        .set('y2', this.selectedArea.y2);
+        .set('y2', this.selectedArea.y2)
+        .set('model', this.selectedModel);
 
       // Send the GET request with the parameters
       this.http
@@ -154,7 +157,7 @@ export class LandSelectorComponent {
                 this.selectedArea.y1
               );
             };
-            this.calculateArea()
+            this.calculateArea();
           },
           (error) => {
             console.error(error);
@@ -167,10 +170,9 @@ export class LandSelectorComponent {
     this.dialog.open(AlertDialogComponent);
   }
 
-  calculateArea(){
-    
-    this.area = this.selectedArea.width*this.selectedArea.height*9
+  calculateArea() {
+    this.area = this.selectedArea.width * this.selectedArea.height * 9;
 
-    this.isCalculated = true
+    this.isCalculated = true;
   }
 }

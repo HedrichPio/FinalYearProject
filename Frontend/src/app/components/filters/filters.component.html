@@ -1,48 +1,58 @@
 <mat-form-field>
-    <mat-label>Select Year</mat-label>
-    <mat-select
-      [(value)]="selectedSeason"
-      (selectionChange)="onSeasonSelected($event)"
+  <mat-label>Select Year</mat-label>
+  <mat-select
+    [(value)]="selectedSeason"
+    (selectionChange)="onSeasonSelected($event)"
+  >
+    <mat-option *ngFor="let option of seasonOptions" [value]="option.value">{{
+      option.label
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select Season</mat-label>
+  <mat-select
+    [(value)]="selectedYear"
+    (selectionChange)="onYearSelected($event)"
+  >
+    <mat-option *ngFor="let option of yearOptions" [value]="option.value">{{
+      option.label
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select District</mat-label>
+  <mat-select
+    [(value)]="selectedDistrict"
+    (selectionChange)="onDistrictSelected($event)"
+  >
+    <mat-option *ngFor="let option of districtOptions" [value]="option.value">{{
+      option.label
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select Classifier</mat-label>
+  <mat-select
+    [(value)]="selectedClassifier"
+    (selectionChange)="onClassifierSelected($event)"
+  >
+    <mat-option
+      *ngFor="let option of classiferOptions"
+      [value]="option.value"
+      >{{ option.label }}</mat-option
     >
-      <mat-option *ngFor="let option of seasonOptions" [value]="option.value">{{
-        option.label
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Select Season</mat-label>
-    <mat-select
-      [(value)]="selectedYear"
-      (selectionChange)="onYearSelected($event)"
-    >
-      <mat-option *ngFor="let option of yearOptions" [value]="option.value">{{
-        option.label
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Select District</mat-label>
-    <mat-select
-      [(value)]="selectedDistrict"
-      (selectionChange)="onDistrictSelected($event)"
-    >
-      <mat-option *ngFor="let option of districtOptions" [value]="option.value">{{
-        option.label
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  
-  <mat-form-field>
-      <mat-label>Select Classifier</mat-label>
-      <mat-select
-        [(value)]="selectedClassifier"
-        (selectionChange)="onClassifierSelected($event)"
-      >
-        <mat-option *ngFor="let option of classiferOptions" [value]="option.value">{{
-          option.label
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select a Model:</mat-label>
+  <mat-select [(ngModel)]="selectedModel" (ngModelChange)="onModelSelected()">
+    <mat-option *ngFor="let option of modelOptions" [value]="option.value">{{
+      option.label
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,31 +1,59 @@
-
 .image_container {
-    margin: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    border-radius: 10px;
-    background-color: rgb(210, 210, 210);
-  }
-
-
-
-
-p{
-    text-align: center;
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgb(210, 210, 210);
 }
 
-button{
-    margin: auto;
-    display: table-cell;
-    margin-top: 10px;
-    width: 10%;
-    background-color: rgb(86, 182, 86);
-    opacity:  0.75;
-    transition: 0.3s;
+h1 {
+  text-align: center;
 }
 
-button:hover{
-    opacity: 1
+p {
+  text-align: center;
+}
+
+button {
+  margin: auto;
+  display: table-cell;
+  margin-top: 10px;
+  width: 10%;
+  background-color: rgb(86, 182, 86);
+  opacity: 0.75;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.results_div {
+  margin-top: 20px;
+}
+
+.legend_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin: 10px;
+}
+
+.legend_div {
+  width: 25px;
+  height: 25px;
+  border: 1.5px solid black;
+}
+
+#white_legend {
+  background-color: white;
+}
+
+#black_legend {
+  background-color: black;
 }

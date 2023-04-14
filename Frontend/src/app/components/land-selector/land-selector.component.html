@@ -1,13 +1,21 @@
+<app-filters (modelChangeEmitter)="onModelFilterChange($event)"></app-filters>
+<h1>Select an Area within the map</h1>
 <div class="image_container">
-    <canvas #canvas></canvas>
+  <canvas #canvas></canvas>
+</div>
+
+<!-- <div id="check_button" (click)="getResults()"><p>Check</p></div> -->
+<button mat-stroked-button (click)="getResults()">Check</button>
+
+<div *ngIf="isCalculated" class="results_div">
+
+  <div class="legend_container">
+    <div class="legend_div" id="white_legend"></div><p>Cultivated Paddy Lands</p>
   </div>
-  
-  <!-- <div id="check_button" (click)="getResults()"><p>Check</p></div> -->
-  <button mat-stroked-button (click)="getResults()">Check</button>
-  
-  <div *ngIf="isCalculated">
-    <p>Selected Area : {{area}} sq. metres</p>
+  <div class="legend_container">
+    <div class="legend_div" id="black_legend"></div><p>Abandoned Paddy Lands</p>
   </div>
-  
-  
-  
+
+  <p>Total Area : 1,197,558 sq. metres</p>
+  <p>Selected Area : {{ area }} sq. metres</p>
+</div>

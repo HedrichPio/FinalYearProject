@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
@@ -6,7 +6,25 @@ import { MatSelectChange } from '@angular/material/select';
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.css'],
 })
-export class FiltersComponent {
+export class FiltersComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.onModelSelected()
+  }
+
+  @Output() modelChangeEmitter = new EventEmitter<string>();
+  
+
+  selectedSeason: string = 'yala';
+  selectedYear: string = '2022';
+  selectedDistrict: string = 'anuradhapura';
+  selectedClassifier: string = 'abandonment';
+  selectedModel: string = 'LSTM';
+
+
+
+
+
   seasonOptions = [
     { value: 'yala', label: 'Yala' },
     // { value: 'maha', label: 'Maha' }
@@ -27,10 +45,12 @@ export class FiltersComponent {
     //{value: 'extent', label: 'Paddy Extent'},
   ];
 
-  selectedSeason: String = 'yala';
-  selectedYear: String = '2022';
-  selectedDistrict: String = 'anuradhapura';
-  selectedClassifier: String = 'abandonment'
+  modelOptions =[
+    {value: 'LSTM', label: 'LSTM Model'},
+    {value: 'CNN', label: 'CNN Model'},
+    //{value: 'RF', label: 'Random Forest Model'}
+  ];
+
 
   onSeasonSelected(event: MatSelectChange) {
     console.log(event.value);
@@ -47,4 +67,10 @@ export class FiltersComponent {
   onClassifierSelected(event: MatSelectChange) {
     console.log(event.value);
   }
+
+  onModelSelected() {
+    this.modelChangeEmitter.emit(this.selectedModel);
+    console.log(this.selectedModel)
+  }
+
 }
