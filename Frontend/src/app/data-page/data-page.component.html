@@ -1,16 +1,31 @@
-<div id="col_left">
-  <h3>NDVI (Normalised Difference Vegetative Index)</h3>
+<div class="div_head">
+  <h4>
+    The following are the satellite images which were used to create the testing
+    dataset.
+  </h4>
+
+</div>
+
+<div class="div_cols">
+  <h3>Planet Labs</h3>
+  <h4> The NDVI (Normalised Difference Vegetative Index) was extracted using the
+    planet labs satellite images.</h4>
+    <img src='/assets/NDVI_eq.png'/>
   <app-image-card
     *ngFor="let single of AllImages"
     [satelliteImage]="single"
   ></app-image-card>
 </div>
 
-<div id="col_right">
-    <h3>LSWI (Land Soil Water Index)</h3>
-    <app-image-card
-      *ngFor="let single of lswiData"
-      [satelliteImage]="single"
-    ></app-image-card>
-  </div>
-  
+<div class="div_cols">
+  <h3>Sentinel 2</h3>
+  <h4>
+    The LSWI (Land Soil Water Index) feature
+    was extracted from Sentinel 2 satellite images.
+  </h4>
+  <img src='/assets/LSWI_eq.png'/>
+  <app-image-card
+    *ngFor="let single of lswiData"
+    [satelliteImage]="single"
+  ></app-image-card>
+</div>

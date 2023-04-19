@@ -1,4 +1,8 @@
-div{ 
+.div_head{
+    padding-top: 25px;
+    padding-left:50px;
+}
+.div_cols{ 
     display:table-cell;
-    padding: 20px 50px;
+    padding: 0px 50px;
 }

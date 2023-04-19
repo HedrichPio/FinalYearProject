@@ -2,7 +2,8 @@
     <header>
       <h1>Welcome to Agri AI</h1>
       <p>Agri AI is a tool used to detect abandoned paddy lands</p>
-      <button (click)="scrollToSection()">Learn More</button>
+      <!-- <button (click)="scrollToSection()">Learn More</button> -->
+      <button routerLink="/detect" routerLinkActive="active" ariaCurrentWhenActive="page">Detect</button>
     </header>
     <section class="image_section">
         <img src="/assets/paddy_arial.jpeg" alt="">

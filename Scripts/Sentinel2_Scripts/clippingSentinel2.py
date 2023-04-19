@@ -3,11 +3,11 @@ import os
 
 
 # assign directory
-inDirectory_a = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/8a"
-inDirectory_b = "/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/12"
+inDirectory_a = "/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/whole_land/8a"
+inDirectory_b = "/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/whole_land/12"
 
-outDirectory_a ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_8a/clipped_"
-outDirectory_b ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_1_clipped_12/clipped_"
+outDirectory_a ="/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_2/clipped_8a/clipped_"
+outDirectory_b ="/Users/hedrichfernando/Downloads/FYP/RemoteSensingData/Optical_RS/testData/2/test_sentinel2/2_2/clipped_12/clipped_"
 
 #plot 1 top abandoned
 #coordinates = "427091.6225 914065.2363 427326.13 913880.9804"
@@ -18,7 +18,10 @@ outDirectory_b ="/Users/hedrichfernando/Downloads/RemoteSensingData/Optical_RS/t
 #coordinates = "424201.5197 914137.0564 427785.3617 912606.8766"
 
 #2_1
-coordinates = "426567.166 914120.5428 427771.847 913127.2683"
+#coordinates = "426567.166 914120.5428 427771.847 913127.2683"
+
+#2_2
+coordinates = "424754.5412 913791.2896 425894.2662 912715.0683"
 
 
 # iterate over files in
