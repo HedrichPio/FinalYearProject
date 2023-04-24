@@ -2,13 +2,16 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import Chart from 'chart.js/auto';
+
 
 @Component({
   selector: 'app-land-selector',
   templateUrl: './land-selector.component.html',
   styleUrls: ['./land-selector.component.css'],
 })
-export class LandSelectorComponent {
+export class LandSelectorComponent implements OnInit {
+  
   @ViewChild('canvas', { static: true })
   canvasRef!: ElementRef<HTMLCanvasElement>;
 
@@ -17,42 +20,49 @@ export class LandSelectorComponent {
   private image: HTMLImageElement = new Image();
   private rect: any = {};
 
+
   private selectedArea: any = {};
 
   dataFromAPI: any;
-  totalLandArea:any;
-  area: any;
-  additionalData : any
-  abandonedArea='test'
-  cultivatedArea= 'test'
 
+  totalLandArea: any = 0;
+  area: any = 0;
+
+  additionalData: any;
+  abandonedArea = 0;
+  cultivatedArea = 0;
 
   isAreaSelected: Boolean = false;
   isCalculated: Boolean = false;
 
   selectedMap: string = 'map1';
-
   selectedModel!: string;
+
+  public chart: any;
+  private totaAreaChart:any;
+
 
   constructor(private http: HttpClient, public dialog: MatDialog) {
     this.image.src = '/assets/map_1.jpg';
+  }
+
+  ngOnInit(): void {
+    this.createResultsChart()
+    this.createTotalLandChart()
   }
 
 
   changeMap() {
     this.isCalculated = false;
     this.isAreaSelected = false;
-    
+
     if (this.selectedMap == 'map1') {
       this.image.src = '/assets/map_2.jpg';
       this.selectedMap = 'map2';
-    }
-    else{
+    } else {
       this.image.src = '/assets/map_1.jpg';
       this.selectedMap = 'map1';
     }
-
-    
   }
 
   onModelFilterChange(model: string) {
@@ -87,6 +97,7 @@ export class LandSelectorComponent {
         false
       );
     };
+    
   }
 
   //start x and y
@@ -114,7 +125,6 @@ export class LandSelectorComponent {
       width: this.rect.w,
       height: this.rect.h,
     };
-
   }
 
   handleMouseMove(e: MouseEvent) {
@@ -153,7 +163,7 @@ export class LandSelectorComponent {
         .set('y1', this.selectedArea.y1)
         .set('x2', this.selectedArea.x2)
         .set('y2', this.selectedArea.y2)
-        .set('map',this.selectedMap)
+        .set('map', this.selectedMap)
         .set('model', this.selectedModel);
 
       // Send the GET request with the parameters
@@ -175,7 +185,7 @@ export class LandSelectorComponent {
                 this.selectedArea.y1
               );
             };
-            this.getAdditionalInfo()
+            
             this.calculateArea();
           },
           (error) => {
@@ -185,33 +195,36 @@ export class LandSelectorComponent {
     }
   }
 
-  doubleAction(){
-    this.getResults()
-    this.getResults()
+  doubleAction() {
+    this.getResults();
+    this.getResults();
+    this.getAdditionalInfo();
+    
   }
 
   //getAdditionalInfoAPI
-  getAdditionalInfo(){
-    
+  getAdditionalInfo() {
     const params = new HttpParams()
-      .set('map',this.selectedMap)
+      .set('map', this.selectedMap)
       .set('model', this.selectedModel);
 
-      this.http
+    this.http
       .get('http://localhost:3000/getAdditionalInfoAPI', {
         params,
-      }).subscribe(
-          (data) => {
-    
-            this.additionalData = data;
-            this.cultivatedArea = this.additionalData.cultivated
-            this.abandonedArea = this.additionalData.abandoned
-            console.log(this.additionalData);
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
+      })
+      .subscribe(
+        (data) => {
+          this.additionalData = data;
+          this.cultivatedArea = this.additionalData.cultivated;
+          this.abandonedArea = this.additionalData.abandoned;
+
+          this.chart.data.datasets[0].data = [this.cultivatedArea,this.abandonedArea]
+          this.chart.update();
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   openDialog() {
@@ -221,13 +234,60 @@ export class LandSelectorComponent {
   calculateArea() {
     this.area = this.selectedArea.width * this.selectedArea.height * 9;
 
-    if (this.selectedMap=='map1') {
-      this.totalLandArea = 1197558
-      
+    if (this.selectedMap == 'map1') {
+      this.totalLandArea = 1197558;
     } else {
-      this.totalLandArea = 1227780
+      this.totalLandArea = 1227780;
     }
-
     this.isCalculated = true;
+
+    this.totaAreaChart.data.datasets[0].data = [this.totalLandArea,this.area]
+    this.totaAreaChart.update();
   }
+
+  createResultsChart() {
+
+    this.chart = new Chart('MyChart', {
+      type: 'doughnut', //this denotes tha type of chart
+      data: {
+        // values on X-Axis
+        labels: ['Cultivated Land', 'Abandoned Land'],
+        datasets: [
+          {
+            label: 'Results',
+            data: [0,0],
+            backgroundColor: ['rgb(144, 238, 144)', 'rgb(233, 100, 100)'],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
+  }
+
+  createTotalLandChart() {
+
+    this.totaAreaChart = new Chart('TotalLandChart', {
+      type: 'doughnut', //this denotes tha type of chart
+      data: {
+        // values on X-Axis
+        labels: ['Total Land', 'Selected Land'],
+        datasets: [
+          {
+            label: 'Results',
+            data: [0,0],
+            backgroundColor: ['rgb(173, 216, 230)', 'rgb(230, 225, 109)'],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
+ 
+  }
+
 }

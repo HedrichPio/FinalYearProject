@@ -25,6 +25,8 @@ import { ImageCardComponent } from './components/image-card/image-card.component
 import { FiltersComponent } from './components/filters/filters.component';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ImageCardComponent,
     FiltersComponent,
     AlertDialogComponent,
-    FooterComponent
+    FooterComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDialogModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

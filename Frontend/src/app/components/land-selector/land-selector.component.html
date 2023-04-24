@@ -1,27 +1,52 @@
 <app-filters (modelChangeEmitter)="onModelFilterChange($event)"></app-filters>
+
 <h1>Select an Area within the map</h1>
-<button id="changeButton" mat-stroked-button (click)="changeMap()">Change Map</button>
+<button id="changeButton" mat-stroked-button (click)="changeMap()">
+  Change Map
+</button>
+
 <div class="image_container">
   <canvas #canvas></canvas>
 </div>
 
-
 <button mat-stroked-button (click)="doubleAction()">Check</button>
 
-<div *ngIf="isCalculated" class="results_div">
-
+<!-- <div *ngIf="isCalculated" class="results_div">
   <div class="legend_container">
-    <div class="legend_div" id="white_legend"></div><p>Cultivated Paddy Lands</p>
+    <div class="legend_div" id="white_legend"></div>
+    <p>Cultivated Paddy Lands</p>
   </div>
   <div class="legend_container">
-    <div class="legend_div" id="black_legend"></div><p>Abandoned Paddy Lands</p>
+    <div class="legend_div" id="black_legend"></div>
+    <p>Abandoned Paddy Lands</p>
+  </div>
+</div> -->
+
+<div *ngIf="isCalculated" class="legend_container">
+  <div id="white_legend"></div>
+  <div>
+    <p>Cultivated Paddy Lands</p>
   </div>
 
-  <p>Total Area : {{totalLandArea | number:'1.0-0'}} sq. metres</p>
-  <p>Selected Area : {{ area | number:'1.0-0' }} sq. metres</p>
-  <p>Total Abandoned Area : {{ abandonedArea | number:'1.0-0' }} sq. metres</p>
-  <p>Total Cultivated Area : {{ cultivatedArea | number:'1.0-0' }} sq. metres</p>
-
+  <div id="black_legend"></div>
+  <div>
+    <p>Abandoned Paddy Lands</p>
+  </div>
 </div>
 
-
+<div class="container">
+  <div class="left-panel">
+    <canvas id="TotalLandChart"></canvas>
+    <p>Total Area : {{ totalLandArea | number : "1.0-0" }} sq. metres</p>
+    <p>Selected Area : {{ area | number : "1.0-0" }} sq. metres</p>
+  </div>
+  <div class="right-panel">
+    <canvas id="MyChart"></canvas>
+    <p>
+      Total Abandoned Area : {{ abandonedArea | number : "1.0-0" }} sq. metres
+    </p>
+    <p>
+      Total Cultivated Area : {{ cultivatedArea | number : "1.0-0" }} sq. metres
+    </p>
+  </div>
+</div>

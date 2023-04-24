@@ -12,9 +12,12 @@ h1 {
   text-align: center;
 }
 
-p {
+p{
+  margin-left: 5px;
   text-align: center;
 }
+
+
 
 button {
   margin: auto;
@@ -25,6 +28,7 @@ button {
   opacity: 0.75;
   transition: 0.3s;
 }
+
 #changeButton {
   background-color: rgb(200, 200, 200);
 }
@@ -34,30 +38,48 @@ button:hover {
   color: white;
 }
 
-.results_div {
-  margin-top: 20px;
-}
-
-.legend_container {
-  display: flex;
+.legend_container{
+  display:inline-flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 25px;
 }
 
-p {
-  margin: 10px;
-}
-
-.legend_div {
-  width: 25px;
-  height: 25px;
-  border: 1.5px solid black;
-}
 
 #white_legend {
   background-color: white;
+  width: 25px;
+  height: 25px;
+  border: 1.5px solid black;
+  
 }
 
 #black_legend {
   background-color: black;
+  width: 25px;
+  height: 25px;
+  border: 1.5px solid black;
+  margin-left: 20px;
 }
+
+
+
+.container {
+  width: 100%;
+  margin: 25px;
+}
+
+.left-panel, .right-panel {
+  display: inline-block;
+  width: 48%; /* or adjust as needed */
+  box-sizing: border-box;
+}
+
+/* .left-panel {
+  background-color: rgb(146, 218, 229);
+}
+
+.right-panel {
+  background-color: rgb(233, 100, 100);
+} */
