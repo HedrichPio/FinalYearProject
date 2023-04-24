@@ -9,8 +9,6 @@ import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
   styleUrls: ['./land-selector.component.css'],
 })
 export class LandSelectorComponent {
-  dataFromAPI: any;
-
   @ViewChild('canvas', { static: true })
   canvasRef!: ElementRef<HTMLCanvasElement>;
 
@@ -21,15 +19,40 @@ export class LandSelectorComponent {
 
   private selectedArea: any = {};
 
+  dataFromAPI: any;
+  totalLandArea:any;
   area: any;
+  additionalData : any
+  abandonedArea='test'
+  cultivatedArea= 'test'
+
 
   isAreaSelected: Boolean = false;
   isCalculated: Boolean = false;
 
+  selectedMap: string = 'map1';
+
   selectedModel!: string;
 
   constructor(private http: HttpClient, public dialog: MatDialog) {
-    this.image.src = '/assets/xyz_jpg.jpg';
+    this.image.src = '/assets/map_1.jpg';
+  }
+
+
+  changeMap() {
+    this.isCalculated = false;
+    this.isAreaSelected = false;
+    
+    if (this.selectedMap == 'map1') {
+      this.image.src = '/assets/map_2.jpg';
+      this.selectedMap = 'map2';
+    }
+    else{
+      this.image.src = '/assets/map_1.jpg';
+      this.selectedMap = 'map1';
+    }
+
+    
   }
 
   onModelFilterChange(model: string) {
@@ -76,16 +99,12 @@ export class LandSelectorComponent {
     this.isAreaSelected = false;
   }
 
-  //finsh
+  //finish, end x and y
   handleMouseUp(e: MouseEvent) {
     this.rect.drag = false;
 
     this.rect.stopX = e.offsetX;
     this.rect.stopY = e.offsetY;
-
-    // console.log(
-    //   `x: ${this.rect.startX}, y: ${this.rect.startY}, x2: ${this.rect.stopX}, y2: ${this.rect.stopY}`
-    // );
 
     this.selectedArea = {
       x1: this.rect.startX,
@@ -96,8 +115,6 @@ export class LandSelectorComponent {
       height: this.rect.h,
     };
 
-    // const area = this.selectedArea.width * this.selectedArea.height;
-    // console.log(`Selected area: ${area}`);
   }
 
   handleMouseMove(e: MouseEvent) {
@@ -136,6 +153,7 @@ export class LandSelectorComponent {
         .set('y1', this.selectedArea.y1)
         .set('x2', this.selectedArea.x2)
         .set('y2', this.selectedArea.y2)
+        .set('map',this.selectedMap)
         .set('model', this.selectedModel);
 
       // Send the GET request with the parameters
@@ -157,6 +175,7 @@ export class LandSelectorComponent {
                 this.selectedArea.y1
               );
             };
+            this.getAdditionalInfo()
             this.calculateArea();
           },
           (error) => {
@@ -166,12 +185,48 @@ export class LandSelectorComponent {
     }
   }
 
+  doubleAction(){
+    this.getResults()
+    this.getResults()
+  }
+
+  //getAdditionalInfoAPI
+  getAdditionalInfo(){
+    
+    const params = new HttpParams()
+      .set('map',this.selectedMap)
+      .set('model', this.selectedModel);
+
+      this.http
+      .get('http://localhost:3000/getAdditionalInfoAPI', {
+        params,
+      }).subscribe(
+          (data) => {
+    
+            this.additionalData = data;
+            this.cultivatedArea = this.additionalData.cultivated
+            this.abandonedArea = this.additionalData.abandoned
+            console.log(this.additionalData);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+  }
+
   openDialog() {
     this.dialog.open(AlertDialogComponent);
   }
 
   calculateArea() {
     this.area = this.selectedArea.width * this.selectedArea.height * 9;
+
+    if (this.selectedMap=='map1') {
+      this.totalLandArea = 1197558
+      
+    } else {
+      this.totalLandArea = 1227780
+    }
 
     this.isCalculated = true;
   }

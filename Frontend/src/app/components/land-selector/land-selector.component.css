@@ -25,9 +25,13 @@ button {
   opacity: 0.75;
   transition: 0.3s;
 }
+#changeButton {
+  background-color: rgb(200, 200, 200);
+}
 
 button:hover {
   opacity: 1;
+  color: white;
 }
 
 .results_div {

@@ -1,11 +1,12 @@
 <app-filters (modelChangeEmitter)="onModelFilterChange($event)"></app-filters>
 <h1>Select an Area within the map</h1>
+<button id="changeButton" mat-stroked-button (click)="changeMap()">Change Map</button>
 <div class="image_container">
   <canvas #canvas></canvas>
 </div>
 
-<!-- <div id="check_button" (click)="getResults()"><p>Check</p></div> -->
-<button mat-stroked-button (click)="getResults()">Check</button>
+
+<button mat-stroked-button (click)="doubleAction()">Check</button>
 
 <div *ngIf="isCalculated" class="results_div">
 
@@ -16,6 +17,11 @@
     <div class="legend_div" id="black_legend"></div><p>Abandoned Paddy Lands</p>
   </div>
 
-  <p>Total Area : 1,197,558 sq. metres</p>
-  <p>Selected Area : {{ area }} sq. metres</p>
+  <p>Total Area : {{totalLandArea | number:'1.0-0'}} sq. metres</p>
+  <p>Selected Area : {{ area | number:'1.0-0' }} sq. metres</p>
+  <p>Total Abandoned Area : {{ abandonedArea | number:'1.0-0' }} sq. metres</p>
+  <p>Total Cultivated Area : {{ cultivatedArea | number:'1.0-0' }} sq. metres</p>
+
 </div>
+
+

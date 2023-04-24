@@ -20,18 +20,7 @@ export class DataPageComponent implements OnInit {
   AllImages :any;
   lswiData: any;
 
-  getData() {
-    this.http.get<string[]>('http://localhost:3000/getNdviData').subscribe(
-      (data) => {
-        this.imageUrls = data;
-        console.log('pio is testing');
-        console.log(this.imageUrls[0]);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+
 
   getJson() {
     this.http.get('http://localhost:3000/dataJson').subscribe(

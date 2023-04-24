@@ -48,7 +48,7 @@ export class FiltersComponent implements OnInit{
   modelOptions =[
     {value: 'LSTM', label: 'LSTM Model'},
     {value: 'CNN', label: 'CNN Model'},
-    //{value: 'RF', label: 'Random Forest Model'}
+    {value: 'RF', label: 'RF Model'}
   ];
 
 
