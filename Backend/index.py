@@ -23,8 +23,8 @@ def hello():
 @cross_origin()
 def get_ndvi_json():
 
-    with open('assets/ndvi_data.json','r') as f:
-        data = json.load(f)
+    with open('assets/ndvi_data.json','r') as ndvi:
+        data = json.load(ndvi)
 
     return jsonify(data)
 
@@ -33,8 +33,8 @@ def get_ndvi_json():
 @cross_origin()
 def get_lswi_json():
 
-    with open('assets/lswi_data.json','r') as f:
-        data = json.load(f)
+    with open('assets/lswi_data.json','r') as lswi:
+        data = json.load(lswi)
 
     return jsonify(data)
 
