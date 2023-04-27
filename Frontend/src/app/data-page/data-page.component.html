@@ -12,7 +12,7 @@
     planet labs satellite images.</h4>
     <img src='/assets/NDVI_eq.png'/>
   <app-image-card
-    *ngFor="let single of AllImages"
+    *ngFor="let single of ndviData"
     [satelliteImage]="single"
   ></app-image-card>
 </div>

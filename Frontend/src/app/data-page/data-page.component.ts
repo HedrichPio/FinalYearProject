@@ -17,17 +17,17 @@ export class DataPageComponent implements OnInit {
     this.getJson();
   }
 
-  AllImages :any;
+  ndviData :any;
   lswiData: any;
 
 
 
   getJson() {
-    this.http.get('http://localhost:3000/dataJson').subscribe(
+    this.http.get('http://localhost:3000/getNdviJson').subscribe(
       (data) => {
 
-        this.AllImages = data;
-        console.log(this.AllImages);
+        this.ndviData = data;
+        console.log(this.ndviData);
       },
       (error) => {
         console.error(error);
