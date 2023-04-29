@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="spinner-container">
+    <mat-spinner
+      *ngIf="showSpinner"
+      [diameter]="150"
+      [strokeWidth]="10"
+    ></mat-spinner>
+  </div>
+
+
+    <h3>Upload NDVI File</h3>
+    <input type="file" accept=".csv" (change)="onNdviFileSelected($event)" />
+  
+    <h3>Upload LSWI File</h3>
+    <input type="file" accept=".csv" (change)="onLswiFileSelected($event)" />
+  
+    <h3>Upload Coordinate File</h3>
+    <input type="file" accept=".csv" (change)="onCoordFileSelected($event)" />
+
+
+  <div class="button-container">
+    <button (click)="onUpload()">Submit</button>
+  </div>
+</div>

@@ -1,10 +1,15 @@
-from flask import Flask, jsonify, send_file, request
+from flask import Flask, jsonify, send_file, request, Response, stream_with_context
 from flask_cors import CORS, cross_origin
 from PIL import Image
 import json
 import numpy as np
+import time
+import pandas as pd
+
+
 
 from preprocessing import clip,clear_files
+from predict import get_predictions,generate_map
 
 
 
@@ -17,6 +22,16 @@ def hello():
     #clear_files('assets/planet_data/4_xyz')
     #calculateCultivatedExtent()
     return '<h1>Hello, Bubu!</h1>'
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/getNdviJson', methods=['GET'])
@@ -41,7 +56,7 @@ def get_lswi_json():
 
 @app.route('/getResultsAPI')
 @cross_origin()
-def get_newdata():
+def get_clipped_map():
     # Get the values of the parameters from the request URL
     x1 = int(request.args.get('x1'))
     y1 = int(request.args.get('y1'))
@@ -194,6 +209,37 @@ def calculateCultivatedExtent(filename):
         return {'cultivated': cultivated_extent, 'abandoned': abandoned_extent,}
 
 
+
+
+@app.route('/upload', methods=['POST'])
+@cross_origin()
+def upload_file():
+    ndviFile = request.files['ndviFile']
+    lswiFile = request.files['lswiFile']
+    coordFile = request.files['coordFile']
+    
+    if ndviFile and lswiFile and coordFile:
+        
+        ndviData = pd.read_csv(ndviFile)
+        lswiData = pd.read_csv(lswiFile)
+        coordData = pd.read_csv(coordFile)
+
+        get_predictions(ndviData,lswiData,coordData)
+
+        response = 'Results Prediction Complete.'
+
+        # Return the response as a JSON object
+        return jsonify({'message': response})
+        
+    else:
+        return jsonify("No file uploaded")
+
+
+
+@app.route('/download_prediction', methods=['GET'])
+@cross_origin()
+def download_prediction():
+    return send_file('assets/predicted_results/predicted_map.jpg', mimetype='image/jpeg')
 
 
 

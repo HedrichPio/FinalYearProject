@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { PredictPageComponent } from './predict-page/predict-page.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     FiltersComponent,
     AlertDialogComponent,
     FooterComponent,
-    PieChartComponent
+    PieChartComponent,
+    PredictPageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

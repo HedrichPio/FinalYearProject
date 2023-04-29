@@ -1,4 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home-page',
@@ -9,8 +11,12 @@ export class HomePageComponent {
 
   @ViewChild('info') infoSection!: ElementRef;
 
+
+  constructor(private http: HttpClient) {}
+
   scrollToSection() {
     this.infoSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
+  
 
 }

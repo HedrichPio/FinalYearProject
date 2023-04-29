@@ -1,0 +1,56 @@
+[
+    {
+      "date": "31/03/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_03_31_B8A_clip.jpg?alt=media&token=754a5a6f-ac2b-45a2-aa19-d2e8884d66c8"
+    },
+    {
+      "date": "25/04/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_04_25_B8A_clip.jpg?alt=media&token=c8dd9201-3167-4ace-ba17-904f10946bc7"
+    },
+    {
+      "date": "20/05/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_05_20_B8A_clip.jpg?alt=media&token=575a8e18-a0e2-4f06-adc7-ec96d6e030b6"
+    },
+    {
+      "date": "29/06/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_06_29_B8A_clip.jpg?alt=media&token=debcf4d3-8b95-4b44-9824-fd0f66702f73"
+  
+    },
+    {
+      "date": "19/07/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_07_19_B8A_clip.jpg?alt=media&token=e06d9cad-310c-4d18-b306-99bad2a383aa"
+  
+    },
+    {
+      "date": "18/08/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_08_18_B8A_clip.jpg?alt=media&token=3c266fcc-c29a-4a6f-9ccf-1d582f43a5fc"
+  
+    },
+    {
+      "date": "22/09/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_09_22_B8A_clip.jpg?alt=media&token=75cf9597-ab78-4fef-b775-18c6ba9f8f7a"
+  
+    },
+    {
+      "date": "27/09/2022",
+      "satellite": "Sentinel 2",
+      "land_size": "133020",
+      "image_url":"https://firebasestorage.googleapis.com/v0/b/finalyearproject-2529d.appspot.com/o/lswi_jpg_files%2Fjpg_resampled_lswi_clipped_2022_09_27_B8A_clip.jpg?alt=media&token=f0e4db1b-e87d-432d-9f02-f86607300851"
+  
+    }
+  ]
+  
